@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <div>
       <nav className="flex justify-end p-3 underline cursor-pointer">
-        <p>Sign Out</p>
+        <Link to="/">Sign Out</Link>
       </nav>
     </div>
   );

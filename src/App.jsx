@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 import "./App.css";
@@ -6,6 +6,20 @@ import ParticlesComponent from "./components/particles";
 import Rank from "./components/Rank";
 
 const App = () => {
+  useEffect(() => {
+    fetch("http://localhost:3000/")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data); // Should log the fetched data
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
   return (
     <div>
       <ParticlesComponent id="particles" />
